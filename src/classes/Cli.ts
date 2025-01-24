@@ -264,7 +264,7 @@ class Cli {
           parseInt(answers.year),
           parseInt(answers.weight),
           parseInt(answers.topSpeed),
-          [],
+          [new Wheel(answers.frontWheelDiameter, answers.frontWheelBrand), new Wheel(answers.rearWheelDiameter, answers.rearWheelBrand)],
         );
         // TODO: push the motorbike to the vehicles array
         this.vehicles.push(motorbike);
@@ -293,7 +293,6 @@ class Cli {
         },
       ])
       .then((answers) => {
-        console.log('Im a Truck', truck)
         // TODO: check if the selected vehicle is the truck
         // TODO: if it is, log that the truck cannot tow itself then perform actions on the truck to allow the user to select another action
         if (answers.vehicleToTow === truck) {
@@ -397,19 +396,19 @@ class Cli {
             if ( this.vehicles[i] instanceof Truck && this.vehicles[i].vin === this.selectedVehicleVin) {
               this.findVehicleToTow(this.vehicles[i] as Truck)
               return
-            } else {
-              console.log('Only trucks are able to tow')
             }
-
+            
           }
+          console.log('Only trucks are able to tow')
         } else if (answers.action === 'Wheelie') {
           for (let i = 0; i < this.vehicles.length; i++) {
-            if (this.vehicles[i] instanceof Motorbike && this.vehicles[i].vin === this.selectedVehicleVin) {
-              this.vehicles[i].wheelie()
-            } else {
-              console.log('Only motorbikes can do a wheelie')
-            }
+            const selectedMotorbike = this.vehicles[i]
+            if (selectedMotorbike instanceof Motorbike && selectedMotorbike.vin === this.selectedVehicleVin) {
+              selectedMotorbike.wheelie()
+            } 
+            
           }
+          console.log('Only motorbikes can do a wheelie')
         } 
         else if (answers.action === 'Select or create another vehicle') {
           // start the cli to return to the initial prompt if the user wants to select or create another vehicle
