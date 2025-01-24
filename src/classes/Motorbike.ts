@@ -51,11 +51,8 @@ class Motorbike extends Vehicle {
 
 
   // TODO: Implement the wheelie method
-  wheelie(vehicle: Truck | Motorbike | Car): void {
-    if (vehicle === 'Motorbike') {
-      console.log(`${vehicle.year}${vehicle.make}${vehicle.model} is doing a wheelie!`)
-    } else {
-      console.log(`This vehicle cannot do a wheelie.`)
+  wheelie(): void {
+      console.log(`${this.year}${this.make}${this.model} is doing a wheelie!`)
     }
     // TODO: The method should log the message "Motorbike [make] [model] is doing a wheelie!"
 
@@ -63,7 +60,7 @@ class Motorbike extends Vehicle {
   // TODO: The method should call the printDetails method of the parent class
   // TODO: The method should log the details of the Motorbike
   // TODO: The details should include the VIN, make, model, year, weight, top speed, color, and wheels
-}
+
 override printDetails(): void {
   super.printDetails();
   console.log(`
