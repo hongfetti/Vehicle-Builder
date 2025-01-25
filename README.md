@@ -41,8 +41,9 @@ Able to add new vehicles to the options - they will be able to interact wwith th
 If you would like to contribute to this application, please consult the guidelines from The [Contributor Covenant](https://www.contributor-covenant.org/), an industry standard.
 
 ## Tests
+https://youtu.be/qD4sCNJhR2k
 
-
+Note: There is currently a small bug causing the terminal to log 'Only motorbikes can do a wheelie' after successfully performing the wheelie task on a Motorbike. This bugfix is still in development however the remainder of the application runs as expected and intended.
 
 ## Questions
 
